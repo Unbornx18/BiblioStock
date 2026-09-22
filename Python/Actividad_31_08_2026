@@ -1,0 +1,45 @@
+#Suponer que tenemos un programa que maneja un carrito de compras
+
+carrito={ "Diademas":31 , "Mouse": 50 , "Gemini Pro":10 }
+
+
+while True:
+    opcion=input("Qué deseas hacer: (agregar/modificar/eliminar/salir): ").lower()
+
+    if opcion=="salir":
+        print("Compra finalizada. El carrito final es: ")
+        print(carrito)
+        break
+
+    elif opcion=="agregar":
+        producto=input("Ingresa el nombre del producto: ")
+        cantidad=int(input("Ingresar la cantidad de ese producto: "))
+        if producto in carrito:
+            print ("El producto ya está")
+        else:
+            carrito[producto]=cantidad
+            print("Producto agregado")
+    #Actualizar la cantidad de elementos de un producto 
+
+    elif opcion=="modificar":
+        producto=input("Ingresa el nombre del producto: ")
+        if producto in carrito:
+            cantidad=int(input("Ingresar la nueva cantidad de ese producto: "))
+            carrito[producto]=cantidad
+            print("Cantidad actualizada")
+        else:
+            print("El producto No está en el carrito, por favor reintente")
+
+    elif opcion=="eliminar":
+        producto=inpur("Ingresa el nombre del producto a eliminar: ")
+        if producto in carrito:
+            #Eliminar el producto
+            del carrito [producto]
+        else:
+            print("Este producto No está en el carrito")
+        
+    else:
+        print("Opción invalida")
+
+    print("Carrito actual:", carrito)
+    print("===============================")
